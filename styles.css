@@ -62,9 +62,9 @@ body {
 }
 
 /* Button and Nav Styling */
-.btn-hover { transition: all 0.3s; }
+.btn-hover { transition: all 0.3s; min-width: 80px; }
 .btn-hover:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); }
-.nav-btn { transition: all 0.2s; position: relative; overflow: hidden; border-radius: 8px; }
+.nav-btn { transition: all 0.2s; position: relative; overflow: hidden; border-radius: 8px; min-width: 60px; }
 .nav-btn:hover { background: #ccfbf1; color: #0f766e; }
 .nav-btn::after {
     content: '';
@@ -83,8 +83,8 @@ body {
 /* Checkbox Styling */
 input[type="checkbox"] {
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     background: #e7e5e4;
     border-radius: 4px;
     border: 2px solid #14b8a6;
@@ -103,10 +103,28 @@ input[type="checkbox"]:checked::after {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 14px;
+    font-size: 12px;
 }
 input[type="checkbox"]:hover:not(:checked) {
     background: #d4d4d3;
+}
+
+/* Mobile-Specific Adjustments */
+@media (max-width: 640px) {
+    #app { padding: 2rem 1rem; }
+    .wave-bg { height: 50vh; }
+    .text-4xl { font-size: 2rem; }
+    .text-2xl { font-size: 1.5rem; }
+    .text-lg { font-size: 0.875rem; }
+    .text-sm { font-size: 0.75rem; }
+    .p-4 { padding: 0.75rem; }
+    .p-3 { padding: 0.5rem; }
+    .space-y-6 { margin-top: 1rem; }
+    .space-y-4 { margin-top: 0.75rem; }
+    .gap-4 { gap: 0.5rem; }
+    .gap-3 { gap: 0.375rem; }
+    .max-w-md { max-width: 100%; }
+    canvas { height: 200px !important; }
 }
 
 /* Dark Theme */
