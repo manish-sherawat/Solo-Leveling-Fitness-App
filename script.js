@@ -141,13 +141,13 @@ function renderTasks() {
 
     user.currentTasks.forEach((task, idx) => {
         const div = document.createElement('div');
-        div.className = 'bg-white p-4 rounded-xl shadow-md flex items-center justify-between slide-in';
+        div.className = 'bg-white p-3 sm:p-4 rounded-xl shadow-md flex items-center justify-between slide-in';
         div.innerHTML = `
-            <label class="flex items-center space-x-3">
-                <input type="checkbox" onchange="toggleTask(${idx})" class="w-5 h-5" ${task.completed ? 'checked' : ''}>
-                <span class="text-lg">${task.name}</span>
+            <label class="flex items-center space-x-2 sm:space-x-3">
+                <input type="checkbox" onchange="toggleTask(${idx})" class="w-4 sm:w-5 h-4 sm:h-5">
+                <span class="text-sm sm:text-lg">${task.name}</span>
             </label>
-            <span class="text-lg text-teal-600">${task.reps} ${task.unit}</span>
+            <span class="text-sm sm:text-lg text-teal-600">${task.reps} ${task.unit}</span>
         `;
         tasksDiv.appendChild(div);
     });
@@ -212,8 +212,8 @@ function showProfile() {
         <div>Streak: <span class="text-teal-600">${user.streak} ${user.streak === 1 ? 'Day' : 'Days'}</span></div>
         <div class="space-y-2">
             <span>Progress:</span>
-            <div class="bg-stone-200 h-4 rounded-lg overflow-hidden">
-                <div class="bg-teal-600 h-4 rounded-lg progress-grow" style="--progress: ${progress}%"></div>
+            <div class="bg-stone-200 h-3 sm:h-4 rounded-lg overflow-hidden">
+                <div class="bg-teal-600 h-3 sm:h-4 rounded-lg progress-grow" style="--progress: ${progress}%"></div>
             </div>
         </div>
     `;
@@ -231,8 +231,8 @@ function showProgress() {
         <div>Streak: <span class="text-teal-600">${user.streak} ${user.streak === 1 ? 'Day' : 'Days'}</span></div>
         <div class="space-y-2">
             <span>Weekly Progress:</span>
-            <div class="bg-stone-200 h-4 rounded-lg overflow-hidden">
-                <div class="bg-teal-600 h-4 rounded-lg progress-grow" style="--progress: ${progress}%"></div>
+            <div class="bg-stone-200 h-3 sm:h-4 rounded-lg overflow-hidden">
+                <div class="bg-teal-600 h-3 sm:h-4 rounded-lg progress-grow" style="--progress: ${progress}%"></div>
             </div>
         </div>
     `;
@@ -267,8 +267,9 @@ function renderProfileChart() {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: { y: { beginAtZero: true, grid: { color: '#d4d4d3' } }, x: { grid: { color: '#d4d4d3' } } },
-            plugins: { legend: { labels: { color: '#44403c' } } }
+            plugins: { legend: { labels: { color: '#44403c', font: { size: 12 } } } }
         }
     });
 }
@@ -289,8 +290,9 @@ function renderProgressChart() {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales: { y: { beginAtZero: true, grid: { color: '#d4d4d3' } }, x: { grid: { color: '#d4d4d3' } } },
-            plugins: { legend: { labels: { color: '#44403c' } } }
+            plugins: { legend: { labels: { color: '#44403c', font: { size: 12 } } } }
         }
     });
 }
