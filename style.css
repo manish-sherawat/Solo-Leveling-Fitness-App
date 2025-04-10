@@ -1,0 +1,276 @@
+body {
+    background-color: #18181b;
+    color: #d4d4d8;
+    position: relative;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Solo Leveling Theme Animations */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rankPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes progressGrow {
+    from { width: 0; }
+    to { width: var(--progress); }
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); }
+    100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+}
+
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6); }
+    100% { text-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+}
+
+@keyframes pulseLogo {
+    0% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5)); }
+    50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5)); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes revealInput {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shadow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.slide-in { animation: slideIn 0.5s ease-out; }
+.rank-pulse { animation: rankPulse 0.6s ease-in-out; }
+.progress-grow { animation: progressGrow 1s ease-out; }
+.pulse-logo { animation: pulseLogo 2s infinite ease-in-out; }
+.reveal-input { animation: revealInput 0.8s ease-out 0.5s forwards; opacity: 0; }
+#welcomeQuote { animation: fadeIn 1s ease-out 1.2s forwards; }
+
+/* Shadow Background */
+.shadow-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, rgba(24, 24, 27, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Shadow Effects */
+.shadow-neon {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.shadow-neon:hover {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.shadow-blue {
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+}
+
+.shadow-red {
+    box-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+}
+
+.shadow-amber {
+    box-shadow: 0 0 10px rgba(217, 119, 6, 0.5);
+}
+
+.shadow-glow {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+    animation: textGlow 2s infinite ease-in-out;
+}
+
+/* Button and Nav Styling */
+.btn-hover { 
+    transition: all 0.3s; 
+    min-width: 80px; 
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hover:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.btn-hover::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to right, rgba(37, 99, 235, 0), rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0));
+    transform: rotate(30deg);
+    animation: shadow 3s infinite linear;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.btn-hover:hover::before {
+    opacity: 1;
+}
+
+.nav-btn { 
+    transition: all 0.2s; 
+    position: relative; 
+    overflow: hidden; 
+    border-radius: 8px; 
+    min-width: 80px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.nav-btn:hover { 
+    background: rgba(37, 99, 235, 0.2);
+    color: #60a5fa;
+}
+
+.nav-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #3b82f6;
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.nav-btn:hover::after {
+    width: 80%;
+}
+
+/* Quest Items */
+.quest-item {
+    border-left: 3px solid #3b82f6;
+    transition: all 0.3s;
+    padding-left: 1rem;
+}
+
+.quest-item:hover {
+    border-left-width: 5px;
+    background: rgba(37, 99, 235, 0.1);
+}
+
+.quest-complete {
+    border-left-color: #10b981;
+}
+
+/* Progress Bars */
+.stat-bar {
+    height: 6px;
+    background: #3f3f46;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    border-radius: 3px;
+    transition: width 0.5s;
+}
+
+/* Item Cards */
+.item-card {
+    background: #27272a;
+    border-radius: 0.75rem;
+    border: 1px solid #3f3f46;
+    padding: 1rem;
+    transition: all 0.3s;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    border-color: #3b82f6;
+}
+
+.item-rarity-common {
+    border-top: 3px solid #9ca3af;
+}
+
+.item-rarity-uncommon {
+    border-top: 3px solid #10b981;
+}
+
+.item-rarity-rare {
+    border-top: 3px solid #3b82f6;
+}
+
+.item-rarity-epic {
+    border-top: 3px solid #8b5cf6;
+}
+
+.item-rarity-legendary {
+    border-top: 3px solid #f59e0b;
+}
+
+/* Dark Shadow Mode */
+body.shadow-mode {
+    background: #000000;
+    color: #a1a1aa;
+}
+
+body.shadow-mode .bg-zinc-800 {
+    background: #09090b;
+}
+
+body.shadow-mode .text-blue-400 {
+    color: #93c5fd;
+}
+
+body.shadow-mode .border-blue-500 {
+    border-color: #1d4ed8;
+}
+
+body.shadow-mode .shadow-neon {
+    box-shadow: 0 0 10px rgba(29, 78, 216, 0.3);
+}
+
+body.shadow-mode .shadow-neon:hover {
+    box-shadow: 0 0 15px rgba(29, 78, 216, 0.5);
+}
+
+body.shadow-mode .shadow-bg {
+    background: radial-gradient(circle at center, rgba(29, 78, 216, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 640px) {
+    #app { padding: 1rem; }
+    .text-6xl { font-size: 3rem; }
+    .text-3xl { font-size: 1.5rem; }
+    .text-xl { font-size: 1.25rem; }
+    .text-lg { font-size: 1rem; }
+    .p-6 { padding: 1rem; }
+    .p-4 { padding: 0.75rem; }
+    .gap-6 { gap: 1rem; }
+    .gap-4 { gap: 0.75rem; }
+}
